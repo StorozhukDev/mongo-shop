@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: mongo-shop
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/shop
+      database: shop
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+      fail-on-empty-beans: false
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    org.springframework.data.mongodb.core: DEBUG

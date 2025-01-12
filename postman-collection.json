@@ -1,0 +1,176 @@
+{
+  "info": {
+    "_postman_id": "2a2ceff0-e8dc-446d-a8a6-29f64d926222",
+    "name": "Mongo Shop API",
+    "description": "Postman collection to test all endpoints of Shop Item Management API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17174859"
+  },
+  "item": [
+    {
+      "name": "products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/products?page=0&size=10&sort=name&attr_value_color=black&attr_value_adjective=Awesome&attr_max_accessories=2222&min_price=400&max_price=900&search=MiNus",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "10"
+            },
+            {
+              "key": "sort",
+              "value": "name"
+            },
+            {
+              "key": "category",
+              "value": "Granite",
+              "disabled": true
+            },
+            {
+              "key": "attr_value_color",
+              "value": "black"
+            },
+            {
+              "key": "attr_value_adjective",
+              "value": "Awesome"
+            },
+            {
+              "key": "attr_search_color",
+              "value": "black",
+              "disabled": true
+            },
+            {
+              "key": "attr_exists_accessoriesPrice",
+              "value": "false",
+              "disabled": true
+            },
+            {
+              "key": "attr_max_accessories",
+              "value": "2222"
+            },
+            {
+              "key": "attr_min_accessoriesPrice",
+              "value": "333",
+              "disabled": true
+            },
+            {
+              "key": "attr_max_accessoriesPrice",
+              "value": "777",
+              "disabled": true
+            },
+            {
+              "key": "min_price",
+              "value": "400"
+            },
+            {
+              "key": "max_price",
+              "value": "900"
+            },
+            {
+              "key": "search",
+              "value": "MiNus"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "productById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/products/:id",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "6782d2bfbd0a416a8ea239cc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"{{$randomProductName}}\",\r\n    \"category\": \"{{$randomProductMaterial}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\",\r\n    \"price\": {{$randomPrice}},\r\n    \"attributes\": {\r\n        \"color\": \"{{$randomColor}}\",\r\n        \"adjective\": \"{{$randomProductAdjective}}\",\r\n        \"accessories\": {{$randomInt}}\r\n    }\r\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/v1/products",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
