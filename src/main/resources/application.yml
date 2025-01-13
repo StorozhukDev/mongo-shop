@@ -1,3 +1,5 @@
+app.version: '@project.version@'
+
 spring:
   application:
     name: mongo-shop
@@ -5,10 +7,6 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/shop
       database: shop
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
-      fail-on-empty-beans: false
 
 server:
   port: 8080
@@ -17,3 +15,10 @@ logging:
   level:
     root: INFO
     org.springframework.data.mongodb.core: DEBUG
+
+# Swagger configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
